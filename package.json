@@ -1,0 +1,33 @@
+{
+  "name": "camel-select",
+  "main": "./lib/camel-select",
+  "version": "0.0.1",
+  "description": "A smarter selection for camelCase and snake_case.",
+  "keywords": [
+    "camel",
+    "select",
+    "snake",
+    "snake_case",
+    "camelCase",
+    "smart caret",
+    "Eclipse",
+    "caret"
+  ],
+  "activationCommands": {
+    "atom-text-editor:not([mini])": [
+      "camel-select:move-to-end-of-subword",
+      "camel-select:move-to-beginning-of-subword",
+      "camel-select:select-to-end-of-subword",
+      "camel-select:select-to-beginning-of-subword",
+      "camel-select:delete-to-end-of-subword",
+      "camel-select:delete-to-beginning-of-subword"
+    ]
+  },
+  "repository": "https://github.com/goodwine/camel-select",
+  "license": "Apache v2.0",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

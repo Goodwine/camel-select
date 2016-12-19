@@ -1,0 +1,44 @@
+# Copyright 2016 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+# Keybindings require three things to be fully defined: A selector that is
+# matched against the focused element, the keystroke and the command to
+# execute.
+#
+# Below is a basic keybinding which registers on all platforms by applying to
+# the root workspace element.
+
+# For more detailed documentation see
+# http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
+
+'atom-workspace atom-text-editor:not(mini)':
+  'ctrl-right': 'camel-select:move-to-end-of-subword'
+  'ctrl-left': 'camel-select:move-to-beginning-of-subword'
+
+  'ctrl-shift-right': 'camel-select:select-to-end-of-subword'
+  'ctrl-shift-left': 'camel-select:select-to-beginning-of-subword'
+
+  'ctrl-delete': 'camel-select:remove-to-end-of-subword'
+  'ctrl-backspace': 'camel-select:remove-to-beginning-of-subword'
+
+'.platform-darwin atom-workspace atom-text-editor:not(mini)':
+  'alt-right': 'camel-select:move-to-end-of-subword'
+  'alt-left': 'camel-select:move-to-beginning-of-subword'
+
+  'alt-shift-right': 'camel-select:select-to-end-of-subword'
+  'alt-shift-left': 'camel-select:select-to-beginning-of-subword'
+
+  'alt-delete': 'camel-select:remove-to-end-of-subword'
+  'alt-backspace': 'camel-select:remove-to-beginning-of-subword'
