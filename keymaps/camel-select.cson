@@ -23,7 +23,7 @@
 # For more detailed documentation see
 # http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
 
-'atom-workspace atom-text-editor:not(mini)':
+'atom-workspace atom-text-editor:not([mini])':
   'ctrl-right': 'camel-select:move-to-end-of-subword'
   'ctrl-left': 'camel-select:move-to-beginning-of-subword'
 
@@ -33,7 +33,7 @@
   'ctrl-delete': 'camel-select:remove-to-end-of-subword'
   'ctrl-backspace': 'camel-select:remove-to-beginning-of-subword'
 
-'.platform-darwin atom-workspace atom-text-editor:not(mini)':
+'.platform-darwin atom-workspace atom-text-editor:not([mini])':
   'alt-right': 'camel-select:move-to-end-of-subword'
   'alt-left': 'camel-select:move-to-beginning-of-subword'
 
