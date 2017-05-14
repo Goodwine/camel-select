@@ -2,49 +2,30 @@ camel-select
 ============
 
 A smarter selection for camelCase and snake_case.  
-![Example of my solution](http://i.imgur.com/e62Goue.gif)
 
 > **Disclaimer:** This is not an official Google product.
 
-Currently Atom already provides a similar functionality under these methods:
+This Atom plugin changes the behavior of cursor movement when pressing the
+Ctrl/Cmd keys to a way that is friendlier on souce code that contains snake_case
+and camelCase by mimicking Eclipse's *Smart Caret* instead of Atom's
+"subword-boundary" behavior.
 
-* `editor:move-to-previous-subword-boundary`
-* `editor:move-to-next-subword-boundary`
-* `editor:select-to-previous-subword-boundary`
-* `editor:select-to-next-subword-boundary`
-* `editor:delete-to-end-of-subword`
-* `editor:delete-to-beginning-of-subword`
+This simple and seemingly small difference makes a big impact while coding,
+especially for someone who works a lot with Eclipse due to muscle memory.
+Now switching between both editors feels like working on the same one.  
+An analogy: Vim users want Vim bindings on Atom.
 
-While these are good enough, they are not perfect for me, take for example the picture below.
-As you can see, the **2nd and 3rd** lines behave differently.  
-I use a lot of Eclipse for Java, so I'm not completely happy with the current solution
-(mostly the uppercase snake_case).
+![Comparison of Atom's native behavior vs this plugin.](https://cloud.githubusercontent.com/assets/2022649/26031913/6bf87350-3839-11e7-9a9f-e92d9c36d810.png)
 
-![Example of Atom's built-in solution](http://i.imgur.com/6qKVQmR.gif)
+Movement is determined by categorizing characters in 5 groups, and instead of
+stopping at non-word characters, the cursor stops when there is a transition:
 
-This package is inspired on [ajile/word-jumper](https://github.com/ajile/word-jumper)'s package,
-I didn't try sending PRs because the repo looks inactive, and instead I decided to create my own.
-Kudos to `ajile` for creating the first package.
-
-The specific rules of how this works is by having 4 categories:
-
-* Lower case characters.
-* Upper case characters.
-* Boundary characters. From your config in `Settings -> Editor -> Non Word Characters`,
-  plus `_`.
-* Space characters. (Those that match `\s`)
-* Neutral characters, the rest of them.
-
-| Transition (in order)    | Action                                               |
-| ------------------------ | ---------------------------------------------------- |
-| boundary -> non-boundary | Continue, new mode mode                              |
-| non-boundary -> boundary | Stop, not inclusive                                  |
-| space -> non-space       | Continue, new mode mode                              |
-| non-space -> space       | Stop, not inclusive                                  |
-| neutral -> non-neutral   | Continue, update mode                                |
-| non-neutral -> neutral   | Continue, same mode                                  |
-| lower -> upper           | Stop, **Left**: inclusive, **Right**: not inclusive  |
-| upper -> lower           | Stop, **Left**: not inclusive, **Right**: lower mode |
+*   Lower case characters.
+*   Upper case characters.
+*   Boundary characters. From your config in `Settings -> Editor -> Non Word
+    Characters`, plus `_`.
+*   Space characters. (Those that match `\s`)
+*   Neutral characters, the rest of them.
 
 ## License
 

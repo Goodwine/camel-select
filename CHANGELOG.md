@@ -1,3 +1,6 @@
+## 0.1.3
+* Updated README.md hoping to clarify what this package does.
+
 ## 0.1.1
 * Fix issue #1 - Problem with keybindings.
 
